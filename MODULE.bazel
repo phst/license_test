@@ -1,0 +1,36 @@
+# Copyright 2025 Philipp Stephani
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+module(
+    name = "phst_license_test",
+    bazel_compatibility = [">=7.0.0"],
+)
+
+bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "aspect_bazel_lib", version = "2.10.0")
+bazel_dep(name = "rules_go", version = "0.51.0")
+bazel_dep(name = "gazelle", version = "0.41.0")
+
+bazel_dep(name = "buildifier_prebuilt", version = "8.0.0", dev_dependency = True)
+
+# FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
+bazel_dep(name = "rules_cc", version = "0.0.17", dev_dependency = True)
+
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+go_deps.from_file(go_mod = "//:go.mod")
+use_repo(go_deps, addlicense = "com_github_google_addlicense")
+
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk", dev_dependency = True)
+go_sdk.nogo(nogo = "//:nogo")
