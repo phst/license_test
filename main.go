@@ -16,7 +16,6 @@ package main
 
 import (
 	"fmt"
-	"io/fs"
 	"log"
 	"os"
 	"os/exec"
@@ -38,13 +37,6 @@ func main() {
 	marker, err := rf.Rlocation(`[marker]`)
 	if err != nil {
 		log.Fatal(err)
-	}
-	stat, err := os.Lstat(marker)
-	if err != nil {
-		log.Fatal(err)
-	}
-	if stat.Mode().Type() != fs.ModeSymlink {
-		log.Fatalf("Marker file %s is not a symlink", marker)
 	}
 	marker, err = filepath.EvalSymlinks(marker)
 	if err != nil {
