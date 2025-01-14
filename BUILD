@@ -14,7 +14,6 @@
 
 load("@aspect_bazel_lib//lib:docs.bzl", "stardoc_with_diff_test", "update_docs")
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("@buildifier_prebuilt//:rules.bzl", "buildifier_test")
 load("@rules_go//go:def.bzl", "TOOLS_NOGO", "go_binary", "nogo")
 load(":def.bzl", "license_test")
 
@@ -56,17 +55,13 @@ stardoc_with_diff_test(
 
 update_docs()
 
-buildifier_test(
-    name = "buildifier_test",
-    timeout = "short",
-    lint_mode = "warn",
-    lint_warnings = ["all"],
-    no_sandbox = True,
-    workspace = "WORKSPACE",
-)
-
 nogo(
     name = "nogo",
     visibility = ["//visibility:public"],
     deps = TOOLS_NOGO,
+)
+
+exports_files(
+    ["WORKSPACE"],
+    visibility = ["//dev:__pkg__"],
 )
