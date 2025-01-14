@@ -51,7 +51,7 @@ func main() {
 		log.Fatal(err)
 	}
 	root := filepath.Dir(marker)
-	cmd := exec.Command(addlicense, `[flags]`, "--", root)
+	cmd := exec.Command(addlicense, `[flags]`, "--", ".")
 	cmd.Dir = root
 	cmd.Env = append(os.Environ(), rf.Env()...)
 	cmd.Stderr = os.Stderr
