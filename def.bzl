@@ -28,7 +28,7 @@ file](https://bazel.build/external/overview#bzlmod):
 bazel_dep(name = "phst_license_test", version = "0", dev_dependency = True)
 git_override(
     module_name = "phst_license_test",
-    commit = "054b810e989f05bc25a703790277c0b5e414cb33",
+    commit = "1fcefa2b1fcc52117d57ee1c432e3b57b2f83f29",
     remote = "https://github.com/phst/license_test.git",
 )
 ```
