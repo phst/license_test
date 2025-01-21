@@ -14,9 +14,12 @@
 
 module github.com/phst/license_test
 
-go 1.21
+go 1.22.7
 
-require github.com/google/addlicense v1.1.1
+require (
+	github.com/bazelbuild/rules_go v0.52.0
+	github.com/google/addlicense v1.1.1
+)
 
 require (
 	github.com/bmatcuk/doublestar/v4 v4.0.2 // indirect
