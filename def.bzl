@@ -69,6 +69,8 @@ def license_test(*, name, marker, ignore = None, **kwargs):
       ignore: File name patterns to ignore.  The patterns are passed to
         the `-ignore` flag of the `addlicense` program and therefore use
         [doublestar syntax](https://github.com/bmatcuk/doublestar#patterns).
+        The patterns are relative to the repository root as determined by the
+        `marker` attribute.
       **kwargs: Common attributes; see [Attributes common to all build
         rules](https://bazel.build/reference/be/common-definitions#common-attributes)
         and [Attributes common to all test
