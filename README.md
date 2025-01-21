@@ -13,13 +13,12 @@ file](https://bazel.build/external/overview#bzlmod):
 bazel_dep(name = "phst_license_test", version = "0", dev_dependency = True)
 git_override(
     module_name = "phst_license_test",
-    commit = "1fcefa2b1fcc52117d57ee1c432e3b57b2f83f29",
+    tag = "0.0.1",
     remote = "https://github.com/phst/license_test.git",
 )
 ```
 
-Replace the commit hash with an actual hash of a recent commit of the
-repository.
+Replace the tag with a recent tag of the repository.
 
 Then you can use the [`license_test`](#license_test) rule described below.
 
@@ -52,7 +51,7 @@ function](https://bazel.build/reference/be/functions#glob).
 | :------------- | :------------- | :------------- |
 | <a id="license_test-name"></a>name |  A unique name for this rule.   |  none |
 | <a id="license_test-marker"></a>marker |  One of the [repository boundary marker files](https://bazel.build/concepts/build-ref#repositories). `license_test` needs the location of this file to find the actual repository root.   |  none |
-| <a id="license_test-ignore"></a>ignore |  File name patterns to ignore.  The patterns are passed to the `-ignore` flag of the `addlicense` program and therefore use [doublestar syntax](https://github.com/bmatcuk/doublestar#patterns).   |  `None` |
+| <a id="license_test-ignore"></a>ignore |  File name patterns to ignore.  The patterns are passed to the `-ignore` flag of the `addlicense` program and therefore use [doublestar syntax](https://github.com/bmatcuk/doublestar#patterns). The patterns are relative to the repository root as determined by the `marker` attribute.   |  `None` |
 | <a id="license_test-kwargs"></a>kwargs |  Common attributes; see [Attributes common to all build rules](https://bazel.build/reference/be/common-definitions#common-attributes) and [Attributes common to all test rules](https://bazel.build/reference/be/common-definitions#common-attributes-tests).   |  none |
 
 
