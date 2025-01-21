@@ -28,13 +28,12 @@ file](https://bazel.build/external/overview#bzlmod):
 bazel_dep(name = "phst_license_test", version = "0", dev_dependency = True)
 git_override(
     module_name = "phst_license_test",
-    commit = "1fcefa2b1fcc52117d57ee1c432e3b57b2f83f29",
+    tag = "0.0.1",
     remote = "https://github.com/phst/license_test.git",
 )
 ```
 
-Replace the commit hash with an actual hash of a recent commit of the
-repository.
+Replace the tag with a recent tag of the repository.
 
 Then you can use the [`license_test`](#license_test) rule described below.
 
