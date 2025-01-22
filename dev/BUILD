@@ -13,6 +13,7 @@
 # limitations under the License.
 
 load("@buildifier_prebuilt//:rules.bzl", "buildifier_test")
+load("@gazelle//:def.bzl", "gazelle", "gazelle_test")
 
 buildifier_test(
     name = "buildifier_test",
@@ -20,5 +21,13 @@ buildifier_test(
     lint_mode = "warn",
     lint_warnings = ["all"],
     no_sandbox = True,
+    workspace = "//:WORKSPACE",
+)
+
+gazelle(name = "gazelle")
+
+gazelle_test(
+    name = "gazelle_test",
+    timeout = "short",
     workspace = "//:WORKSPACE",
 )
