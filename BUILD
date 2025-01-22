@@ -14,7 +14,7 @@
 
 load("@aspect_bazel_lib//lib:docs.bzl", "stardoc_with_diff_test", "update_docs")
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("@rules_go//go:def.bzl", "TOOLS_NOGO", "go_binary", "nogo")
+load("@rules_go//go:def.bzl", "TOOLS_NOGO", "go_binary", "go_library", "nogo")
 load(":def.bzl", "license_test")
 
 license_test(
@@ -27,7 +27,14 @@ license_test(
 
 go_binary(
     name = "main",
+    embed = [":lib"],
+)
+
+go_library(
+    name = "lib",
     srcs = ["main.go"],
+    importpath = "github.com/phst/license_test",
+    visibility = ["//visibility:private"],
     deps = ["@rules_go//go/runfiles"],
 )
 
