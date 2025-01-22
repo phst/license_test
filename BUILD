@@ -41,12 +41,14 @@ go_library(
 bzl_library(
     name = "def",
     srcs = ["def.bzl"],
+    visibility = ["//visibility:public"],
     deps = [":private"],
 )
 
 bzl_library(
     name = "private",
     srcs = ["private.bzl"],
+    visibility = ["//visibility:private"],
     deps = [
         "@aspect_bazel_lib//lib:paths",
         "@rules_go//go:def",
