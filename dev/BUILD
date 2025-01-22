@@ -13,7 +13,7 @@
 # limitations under the License.
 
 load("@buildifier_prebuilt//:rules.bzl", "buildifier_test")
-load("@gazelle//:def.bzl", "gazelle", "gazelle_test")
+load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary", "gazelle_test")
 
 buildifier_test(
     name = "buildifier_test",
@@ -24,10 +24,19 @@ buildifier_test(
     workspace = "//:WORKSPACE",
 )
 
-gazelle(name = "gazelle")
+gazelle(
+    name = "gazelle",
+    gazelle = ":gazelle_binary",
+)
 
 gazelle_test(
     name = "gazelle_test",
     timeout = "short",
+    gazelle = ":gazelle_binary",
     workspace = "//:WORKSPACE",
+)
+
+gazelle_binary(
+    name = "gazelle_binary",
+    languages = DEFAULT_LANGUAGES + ["@bazel_skylib_gazelle_plugin//bzl"],
 )
