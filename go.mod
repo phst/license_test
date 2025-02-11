@@ -17,7 +17,7 @@ module github.com/phst/license_test
 go 1.22.7
 
 require (
-	github.com/bazelbuild/rules_go v0.52.0
+	github.com/bazelbuild/rules_go v0.53.0
 	github.com/google/addlicense v1.1.1
 )
 
