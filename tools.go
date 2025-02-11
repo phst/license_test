@@ -17,6 +17,9 @@
 // and
 // https://github.com/go-modules-by-example/index/blob/master/010_tools/README.md.
 
+// FIXME: Delete this file once
+// https://github.com/bazel-contrib/bazel-gazelle/issues/2031 is fixed.
+
 //go:build tools
 
 package tools
