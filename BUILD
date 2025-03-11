@@ -47,6 +47,11 @@ bzl_library(
     deps = [":private"],
 )
 
+exports_files(
+    ["def.bzl"],
+    visibility = ["//visibility:public"],
+)
+
 bzl_library(
     name = "private",
     srcs = ["private.bzl"],
