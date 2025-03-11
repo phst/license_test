@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@aspect_bazel_lib//lib:docs.bzl", "stardoc_with_diff_test", "update_docs")
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
 load("@rules_go//go:def.bzl", "go_binary", "go_library")
 load(":def.bzl", "license_test")
@@ -65,13 +64,6 @@ bzl_library(
         "@rules_cc//cc/common",
     ],
 )
-
-stardoc_with_diff_test(
-    name = "README",
-    bzl_library_target = ":def",
-)
-
-update_docs()
 
 exports_files(
     ["WORKSPACE"],
