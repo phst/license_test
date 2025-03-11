@@ -17,6 +17,8 @@ load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
 load("@rules_go//go:def.bzl", "go_binary", "go_library")
 load(":def.bzl", "license_test")
 
+# This rule also serves as an example.  The “ignore” and “tags” attributes are
+# not useful in this case, they only serve as illustration.
 license_test(
     name = "license_test",
     timeout = "short",
