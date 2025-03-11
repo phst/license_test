@@ -88,7 +88,3 @@ def _go_string(string):
 
 def _go_strings(strings):
     return ", ".join([_go_string(s) for s in strings])
-
-# Local Variables:
-# coding: iso-8859-1-unix
-# End:

@@ -93,11 +93,3 @@ def license_test(*, name, marker, ignore = None, **kwargs):
         ],
         **kwargs
     )
-
-# Starlark files are Latin-1-encoded.  Specify this explicitly so that we don't
-# accidentally add UTF-8 characters, which would get messed up in the Stardoc
-# output.
-
-# Local Variables:
-# coding: iso-8859-1-unix
-# End:
