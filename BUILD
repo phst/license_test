@@ -14,7 +14,7 @@
 
 load("@aspect_bazel_lib//lib:docs.bzl", "stardoc_with_diff_test", "update_docs")
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("@rules_go//go:def.bzl", "TOOLS_NOGO", "go_binary", "go_library", "nogo")
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
 load(":def.bzl", "license_test")
 
 license_test(
@@ -65,12 +65,6 @@ stardoc_with_diff_test(
 )
 
 update_docs()
-
-nogo(
-    name = "nogo",
-    visibility = ["//visibility:public"],
-    deps = TOOLS_NOGO,
-)
 
 exports_files(
     ["WORKSPACE"],

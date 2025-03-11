@@ -14,6 +14,7 @@
 
 load("@buildifier_prebuilt//:rules.bzl", "buildifier_test")
 load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary", "gazelle_test")
+load("@rules_go//go:def.bzl", "TOOLS_NOGO", "nogo")
 
 buildifier_test(
     name = "buildifier_test",
@@ -39,4 +40,10 @@ gazelle_test(
 gazelle_binary(
     name = "gazelle_binary",
     languages = DEFAULT_LANGUAGES + ["@bazel_skylib_gazelle_plugin//bzl"],
+)
+
+nogo(
+    name = "nogo",
+    visibility = ["//visibility:public"],
+    deps = TOOLS_NOGO,
 )
