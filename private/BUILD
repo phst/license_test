@@ -18,6 +18,7 @@ load("@rules_go//go:def.bzl", "go_binary", "go_library")
 
 go_binary(
     name = "main",
+    testonly = True,
     embed = [":private_lib"],
     visibility = ["//visibility:private"],
 )
@@ -29,6 +30,7 @@ build_test(
 
 go_library(
     name = "private_lib",
+    testonly = True,
     srcs = ["main.go"],
     importpath = "github.com/phst/license_test/private",
     visibility = ["//visibility:private"],
