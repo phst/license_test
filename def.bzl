@@ -42,7 +42,7 @@ This approach is inspired by
 with `no_sandbox`.
 """
 
-load(":private.bzl", _license_test = "license_test")
+load("//private:def.bzl", _license_test = "license_test")
 
 visibility("public")
 

@@ -17,7 +17,7 @@
 load("@aspect_bazel_lib//lib:paths.bzl", "to_rlocation_path")
 load("@rules_go//go:def.bzl", "GoInfo", "go_context", "new_go_info")
 
-visibility("private")
+visibility("//")
 
 # Implementation note: We move the rule definition into a separate file so that
 # the rule kind shows up as "license_test" in bazel query instead of
@@ -60,7 +60,7 @@ license_test = rule(
         "ignore": attr.string_list(),
         "_main": attr.label(
             allow_single_file = [".go"],
-            default = Label("//:main.go"),
+            default = Label("//private:main.go"),
         ),
         "_deps": attr.label_list(
             providers = [GoInfo],

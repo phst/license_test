@@ -13,7 +13,6 @@
 # limitations under the License.
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-load("@rules_go//go:def.bzl", "go_binary", "go_library")
 load(":def.bzl", "license_test")
 
 # This rule also serves as an example.  The “ignore” and “tags” attributes are
@@ -26,43 +25,16 @@ license_test(
     tags = ["my-tag"],
 )
 
-go_binary(
-    name = "main",
-    embed = [":lib"],
-)
-
-go_library(
-    name = "lib",
-    srcs = ["main.go"],
-    importpath = "github.com/phst/license_test",
-    visibility = ["//visibility:private"],
-    deps = ["@rules_go//go/runfiles"],
-)
-
 bzl_library(
     name = "def",
     srcs = ["def.bzl"],
     visibility = ["//visibility:public"],
-    deps = [":private"],
+    deps = ["//private:def"],
 )
 
 exports_files(
     ["def.bzl"],
     visibility = ["//visibility:public"],
-)
-
-bzl_library(
-    name = "private",
-    srcs = ["private.bzl"],
-    visibility = ["//visibility:private"],
-    deps = [
-        "@aspect_bazel_lib//lib:paths",
-        "@rules_go//go:def",
-        # FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
-        "@rules_cc//cc:find_cc_toolchain_bzl",
-        # FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
-        "@rules_cc//cc/common",
-    ],
 )
 
 exports_files(
