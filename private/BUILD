@@ -13,12 +13,18 @@
 # limitations under the License.
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
 load("@rules_go//go:def.bzl", "go_binary", "go_library")
 
 go_binary(
     name = "main",
     embed = [":private_lib"],
     visibility = ["//visibility:private"],
+)
+
+build_test(
+    name = "main_test",
+    targets = [":main"],
 )
 
 go_library(
