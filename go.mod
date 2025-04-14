@@ -17,11 +17,11 @@ module github.com/phst/license_test
 go 1.24
 
 require (
-	github.com/bazelbuild/rules_go v0.53.0
+	github.com/bazelbuild/rules_go v0.54.0
 	github.com/google/addlicense v1.1.1
 )
 
 require (
 	github.com/bmatcuk/doublestar/v4 v4.0.2 // indirect
-	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
+	golang.org/x/sync v0.11.0 // indirect
 )
