@@ -6,6 +6,8 @@ github.com/bazelbuild/rules_go v0.54.0 h1:D9aCU7j5rdRxg2rXOZX5zHZ395XC0KbgC4rnya
 github.com/bazelbuild/rules_go v0.54.0/go.mod h1:T90Gpyq4HDFlsrvtQa2CBdHNJ2P4rAu/uUTmQbanzf0=
 github.com/bazelbuild/rules_go v0.54.1 h1:A12Q//Zw0qIA/oemDiXHdqJCWE5ea2JtZNLSdf0C3yE=
 github.com/bazelbuild/rules_go v0.54.1/go.mod h1:T90Gpyq4HDFlsrvtQa2CBdHNJ2P4rAu/uUTmQbanzf0=
+github.com/bazelbuild/rules_go v0.55.0 h1:S8X/b/Oygw/Dtv7NuyW7ht0QwdynMEdXQqYigX5A1KY=
+github.com/bazelbuild/rules_go v0.55.0/go.mod h1:T90Gpyq4HDFlsrvtQa2CBdHNJ2P4rAu/uUTmQbanzf0=
 github.com/bmatcuk/doublestar/v4 v4.0.2 h1:X0krlUVAVmtr2cRoTqR8aDMrDqnB36ht8wpWTiQ3jsA=
 github.com/bmatcuk/doublestar/v4 v4.0.2/go.mod h1:xBQ8jztBU6kakFMg+8WGxn0c6z1fTSPVIjEY1Wr7jzc=
 github.com/google/addlicense v1.1.1 h1:jpVf9qPbU8rz5MxKo7d+RMcNHkqxi4YJi/laauX4aAE=
