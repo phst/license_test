@@ -41,11 +41,5 @@ bzl_library(
     name = "def",
     srcs = ["def.bzl"],
     visibility = ["//:__pkg__"],
-    deps = [
-        "@rules_go//go:def",
-        # FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
-        "@rules_cc//cc:find_cc_toolchain_bzl",
-        # FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
-        "@rules_cc//cc/common",
-    ],
+    deps = ["@rules_go//go:def"],
 )
