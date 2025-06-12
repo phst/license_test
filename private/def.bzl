@@ -14,7 +14,6 @@
 
 """Internal definitions."""
 
-load("@aspect_bazel_lib//lib:paths.bzl", "to_rlocation_path")
 load("@rules_go//go:def.bzl", "GoInfo", "go_context", "new_go_info")
 
 visibility("//")
@@ -30,9 +29,9 @@ def _license_test_impl(ctx):
         template = ctx.file._main,
         output = main,
         substitutions = {
-            "`[addlicense]`": _go_string(to_rlocation_path(ctx, ctx.executable._addlicense)),
+            "`[addlicense]`": _go_string(_rlocation(ctx, ctx.executable._addlicense)),
             "`[flags]`": _go_strings(["-check"] + ["-ignore=" + p for p in ctx.attr.ignore]),
-            "`[marker]`": _go_string(to_rlocation_path(ctx, ctx.file.marker)),
+            "`[marker]`": _go_string(_rlocation(ctx, ctx.file.marker)),
             "`[source_repo]`": _go_string(ctx.workspace_name),
         },
     )
@@ -79,6 +78,12 @@ license_test = rule(
     toolchains = ["@rules_go//go:toolchain"],
     implementation = _license_test_impl,
 )
+
+def _rlocation(ctx, file):
+    if file.short_path.startswith("../"):
+        return file.short_path[3:]
+    else:
+        return ctx.workspace_name + "/" + file.short_path
 
 def _go_string(string):
     # See https://go.dev/ref/spec#String_literals.

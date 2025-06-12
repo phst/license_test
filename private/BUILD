@@ -42,7 +42,6 @@ bzl_library(
     srcs = ["def.bzl"],
     visibility = ["//:__pkg__"],
     deps = [
-        "@aspect_bazel_lib//lib:paths",
         "@rules_go//go:def",
         # FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
         "@rules_cc//cc:find_cc_toolchain_bzl",
