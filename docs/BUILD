@@ -12,11 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@aspect_bazel_lib//lib:docs.bzl", "stardoc_with_diff_test", "update_docs")
+load("@bazel_skylib//rules:diff_test.bzl", "diff_test")
+load("@stardoc//stardoc:stardoc.bzl", "stardoc")
 
-stardoc_with_diff_test(
+stardoc(
     name = "def",
-    bzl_library_target = "//:def",
+    out = "def.gen.md",
+    input = "//:def.bzl",
+    deps = ["//:def"],
 )
 
-update_docs()
+diff_test(
+    name = "def_test",
+    failure_message = "Run “bazel build //docs:def.gen.md” and copy the output to //docs:def.md.",
+    file1 = "def.md",
+    file2 = "def.gen.md",
+)
