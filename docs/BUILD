@@ -30,6 +30,7 @@ stardoc(
 
 diff_test(
     name = "def_test",
+    timeout = "short",
     failure_message = "Run “bazel build //docs:def.gen.md” and copy the output to //docs:def.md.",
     file1 = "def.md",
     file2 = "def.gen.md",
