@@ -25,7 +25,9 @@ bazel_dep(name = "buildifier_prebuilt", version = "8.2.0.2", dev_dependency = Tr
 bazel_dep(name = "bazel_skylib_gazelle_plugin", version = "1.8.1", dev_dependency = True)
 bazel_dep(name = "stardoc", version = "0.8.0", dev_dependency = True)
 
-# FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
+# FIXME: Remove the following dependency once
+# https://github.com/bazel-contrib/rules_go/issues/4394 and
+# https://github.com/bazelbuild/stardoc/issues/300 are fixed.
 bazel_dep(name = "rules_cc", version = "0.1.2", dev_dependency = True)
 
 go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")

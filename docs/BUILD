@@ -21,9 +21,13 @@ stardoc(
     input = "//:def.bzl",
     deps = [
         "//:def",
-        # FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
+        # FIXME: Remove the following dependency once
+        # https://github.com/bazel-contrib/rules_go/issues/4394 and
+        # https://github.com/bazelbuild/stardoc/issues/300 are fixed.
         "@rules_cc//cc:find_cc_toolchain_bzl",
-        # FIXME: The following dependency shouldn’t be needed.  Bug in Stardoc?
+        # FIXME: Remove the following dependency once
+        # https://github.com/bazel-contrib/rules_go/issues/4394 and
+        # https://github.com/bazelbuild/stardoc/issues/300 are fixed.
         "@rules_cc//cc/common",
     ],
 )
