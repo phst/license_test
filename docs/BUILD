@@ -25,10 +25,6 @@ stardoc(
         # https://github.com/bazel-contrib/rules_go/issues/4394 and
         # https://github.com/bazelbuild/stardoc/issues/300 are fixed.
         "@rules_cc//cc:find_cc_toolchain_bzl",
-        # FIXME: Remove the following dependency once
-        # https://github.com/bazel-contrib/rules_go/issues/4394 and
-        # https://github.com/bazelbuild/stardoc/issues/300 are fixed.
-        "@rules_cc//cc/common",
     ],
 )
 
