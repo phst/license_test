@@ -18,7 +18,7 @@ go 1.23.6
 
 require (
 	github.com/bazelbuild/rules_go v0.56.1
-	github.com/google/addlicense v1.1.1
+	github.com/google/addlicense v1.2.0
 )
 
 require (
