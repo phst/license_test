@@ -31,4 +31,7 @@ require (
 	honnef.co/go/tools v0.6.1
 )
 
-tool honnef.co/go/tools/cmd/staticcheck
+tool (
+	github.com/google/addlicense
+	honnef.co/go/tools/cmd/staticcheck
+)
