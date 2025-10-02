@@ -28,7 +28,7 @@ bazel_dep(name = "stardoc", version = "0.8.0", dev_dependency = True)
 # FIXME: Remove the following dependency once
 # https://github.com/bazel-contrib/rules_go/issues/4394 and
 # https://github.com/bazelbuild/stardoc/issues/300 are fixed.
-bazel_dep(name = "rules_cc", version = "0.2.8", dev_dependency = True)
+bazel_dep(name = "rules_cc", version = "0.2.9", dev_dependency = True)
 
 go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
 go_deps.from_file(go_mod = "//:go.mod")
