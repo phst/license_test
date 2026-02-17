@@ -1,4 +1,4 @@
-# Copyright 2025 Philipp Stephani
+# Copyright 2025, 2026 Philipp Stephani
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,10 @@ load(":def.bzl", "license_test")
 license_test(
     name = "license_test",
     timeout = "short",
-    ignore = ["**/go.sum"],
+    ignore = [
+        "**/go.sum",
+        "example/missing-header.cc",
+    ],
     marker = "MODULE.bazel",
     tags = ["my-tag"],
 )

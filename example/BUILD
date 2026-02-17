@@ -1,4 +1,4 @@
-# Copyright 2025, 2026 Philipp Stephani
+# Copyright 2026 Philipp Stephani
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,25 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.POSIX:
-.SUFFIXES:
+load("@phst_license_test//:def.bzl", "license_test")
 
-SHELL = /bin/sh
-
-BAZEL = bazel
-BAZELFLAGS =
-GO = $(BAZEL) run $(BAZELFLAGS) -- @rules_go//go
-STATICCHECK = $(GO) tool staticcheck
-
-all:
-	$(BAZEL) build $(BAZELFLAGS) -- //...
-
-check: all
-	$(BAZEL) test $(BAZELFLAGS) -- //...
-	$(STATICCHECK) ./...
-        # Example test, expected to fail
-	cd example && ! $(BAZEL) test $(BAZELFLAGS) -- //:license_test
-
-clean:
-	$(BAZEL) clean
-	cd example && $(BAZEL) clean
+license_test(
+    name = "license_test",
+    timeout = "short",
+    marker = "MODULE.bazel",
+    tags = ["manual"],
+)
