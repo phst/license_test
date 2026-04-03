@@ -18,5 +18,4 @@ license_test(
     name = "license_test",
     timeout = "short",
     marker = "MODULE.bazel",
-    tags = ["manual"],
 )
