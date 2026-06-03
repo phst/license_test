@@ -68,7 +68,7 @@ license_test = rule(
         "_addlicense": attr.label(
             allow_single_file = True,
             executable = True,
-            cfg = "exec",
+            cfg = "target",
             default = Label("@addlicense"),
         ),
         "_go_context_data": attr.label(
