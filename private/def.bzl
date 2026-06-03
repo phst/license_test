@@ -1,4 +1,4 @@
-# Copyright 2025 Philipp Stephani
+# Copyright 2025, 2026 Philipp Stephani
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -63,7 +63,7 @@ license_test = rule(
         ),
         "_deps": attr.label_list(
             providers = [GoInfo],
-            default = ["@rules_go//go/runfiles"],
+            default = [Label("@rules_go//go/runfiles")],
         ),
         "_addlicense": attr.label(
             allow_single_file = True,
@@ -75,7 +75,7 @@ license_test = rule(
             default = Label("@rules_go//:go_context_data"),
         ),
     },
-    toolchains = ["@rules_go//go:toolchain"],
+    toolchains = [Label("@rules_go//go:toolchain")],
     implementation = _license_test_impl,
 )
 
