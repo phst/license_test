@@ -1,4 +1,4 @@
-# Copyright 2025, 2026 Philipp Stephani
+# Copyright 2025 Philipp Stephani
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,7 +40,6 @@ gazelle_test(
 gazelle_binary(
     name = "gazelle_binary",
     languages = DEFAULT_LANGUAGES + ["@bazel_skylib_gazelle_plugin//bzl"],
-    target_compatible_with = ["@rules_go//go/toolchain:cgo_off"],
 )
 
 nogo(
