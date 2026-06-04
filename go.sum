@@ -16,6 +16,8 @@ github.com/bazelbuild/rules_go v0.60.0 h1:apGSxTTrFUyLNvX9NQmF4CbntWAO0/S5eALeVg
 github.com/bazelbuild/rules_go v0.60.0/go.mod h1:CYcohJVxs4n7eftbC39GCqaEJm3E1EME+6QAkGguKoI=
 github.com/bazelbuild/rules_go v0.61.0 h1:Anz8trQHMdiCIjUzSjqL1JEZRFZZMYzKkIqwT7ESaMI=
 github.com/bazelbuild/rules_go v0.61.0/go.mod h1:6YghDRf6l3FSiAwncK+Ww9jE1naoQzNq28gaKJeB67I=
+github.com/bazelbuild/rules_go v0.61.1 h1:F7jqdw0Zp/RtWFDbLFuVa2DaPjUQkqZOLCns8vCxSWg=
+github.com/bazelbuild/rules_go v0.61.1/go.mod h1:6YghDRf6l3FSiAwncK+Ww9jE1naoQzNq28gaKJeB67I=
 github.com/bmatcuk/doublestar/v4 v4.0.2 h1:X0krlUVAVmtr2cRoTqR8aDMrDqnB36ht8wpWTiQ3jsA=
 github.com/bmatcuk/doublestar/v4 v4.0.2/go.mod h1:xBQ8jztBU6kakFMg+8WGxn0c6z1fTSPVIjEY1Wr7jzc=
 github.com/google/addlicense v1.2.0 h1:W+DP4A639JGkcwBGMDvjSurZHvaq2FN0pP7se9czsKA=
