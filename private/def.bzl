@@ -14,6 +14,7 @@
 
 """Internal definitions."""
 
+load("@rules_cc//cc:find_cc_toolchain.bzl", "CC_TOOLCHAIN_ATTRS", "use_cc_toolchain")
 load("@rules_go//go:def.bzl", "GoInfo", "go_context", "new_go_info")
 
 visibility("//")
@@ -74,8 +75,15 @@ license_test = rule(
         "_go_context_data": attr.label(
             default = Label("@rules_go//:go_context_data"),
         ),
-    },
-    toolchains = [Label("@rules_go//go:toolchain")],
+        "_pure_flag": attr.label(
+            default = Label("@rules_go//go/config:pure"),
+        ),
+        "_pure_constraint": attr.label(
+            default = Label("@rules_go//go/toolchain:cgo_off"),
+        ),
+    } | CC_TOOLCHAIN_ATTRS,
+    toolchains = [Label("@rules_go//go:toolchain")] + use_cc_toolchain(mandatory = False),
+    fragments = ["cpp"],
     implementation = _license_test_impl,
 )
 
