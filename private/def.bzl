@@ -14,7 +14,7 @@
 
 """Internal definitions."""
 
-load("@rules_cc//cc:find_cc_toolchain.bzl", "CC_TOOLCHAIN_ATTRS", "use_cc_toolchain")
+load("@rules_cc//cc:use_cc_toolchain.bzl", "CC_TOOLCHAIN_ATTRS", "use_cc_toolchain")
 load("@rules_go//go:def.bzl", "GoInfo", "go_context", "new_go_info")
 
 visibility("//")
