@@ -1,4 +1,4 @@
-# Copyright 2025 Philipp Stephani
+# Copyright 2025, 2026 Philipp Stephani
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -41,5 +41,8 @@ bzl_library(
     name = "def",
     srcs = ["def.bzl"],
     visibility = ["//:__pkg__"],
-    deps = ["@rules_go//go:def"],
+    deps = [
+        "@rules_cc//cc:find_cc_toolchain_bzl",
+        "@rules_go//go:def",
+    ],
 )
