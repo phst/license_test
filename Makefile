@@ -13,6 +13,7 @@
 # limitations under the License.
 
 .POSIX:
+.PHONY: all check clean
 .SUFFIXES:
 
 SHELL = /bin/sh
