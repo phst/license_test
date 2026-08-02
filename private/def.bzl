@@ -15,7 +15,7 @@
 """Internal definitions."""
 
 load("@rules_cc//cc:use_cc_toolchain.bzl", "CC_TOOLCHAIN_ATTRS", "use_cc_toolchain")
-load("@rules_go//go:def.bzl", "GoInfo", "go_context", "new_go_info")
+load("@rules_go//go:def.bzl", "GoInfo", "go_context", "go_rule", "new_go_info")
 
 visibility("//")
 
@@ -49,7 +49,7 @@ def _license_test_impl(ctx):
     runfiles = ctx.attr._addlicense[DefaultInfo].default_runfiles.merge(runfiles)
     return DefaultInfo(executable = out, runfiles = runfiles)
 
-license_test = rule(
+license_test = go_rule(
     test = True,
     # @unsorted-dict-items
     attrs = {
