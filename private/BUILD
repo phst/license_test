@@ -14,7 +14,8 @@
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
 load("@bazel_skylib//rules:build_test.bzl", "build_test")
-load("@rules_go//go:def.bzl", "go_binary", "go_library")
+load("@rules_go//go:go_binary.bzl", "go_binary")
+load("@rules_go//go:go_library.bzl", "go_library")
 
 go_binary(
     name = "main",
