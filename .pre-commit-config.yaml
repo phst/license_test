@@ -41,5 +41,6 @@ repos:
       - id: mixed-line-ending
       - id: name-tests-test
       - id: pretty-format-json
+        exclude: ^renovate\.json$
       - id: requirements-txt-fixer
       - id: trailing-whitespace
