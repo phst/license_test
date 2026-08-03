@@ -1,4 +1,4 @@
-# Copyright 2025 Philipp Stephani
+# Copyright 2025, 2026 Philipp Stephani
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ repos:
       - id: detect-private-key
       - id: double-quote-string-fixer
       - id: end-of-file-fixer
+        exclude: ^docs/def\.md$
       - id: fix-byte-order-marker
       - id: forbid-submodules
       - id: mixed-line-ending
