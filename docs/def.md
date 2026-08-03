@@ -10,9 +10,9 @@ dependency like this to your [MODULE.bazel
 file](https://bazel.build/external/overview#bzlmod):
 
 ```starlark
-bazel_dep(name = "phst_license_test", version = "0", dev_dependency = True)
+bazel_dep(name = "license_test", version = "0", dev_dependency = True)
 git_override(
-    module_name = "phst_license_test",
+    module_name = "license_test",
     tag = "0.0.1",
     remote = "https://github.com/phst/license_test.git",
 )
@@ -31,7 +31,7 @@ with `no_sandbox`.
 ## license_test
 
 <pre>
-load("@phst_license_test//:def.bzl", "license_test")
+load("@license_test//:def.bzl", "license_test")
 
 license_test(*, <a href="#license_test-name">name</a>, <a href="#license_test-marker">marker</a>, <a href="#license_test-ignore">ignore</a>, <a href="#license_test-kwargs">**kwargs</a>)
 </pre>

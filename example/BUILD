@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@phst_license_test//:def.bzl", "license_test")
+load("@license_test//:def.bzl", "license_test")
 
 license_test(
     name = "license_test",

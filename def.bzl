@@ -1,4 +1,4 @@
-# Copyright 2025 Philipp Stephani
+# Copyright 2025, 2026 Philipp Stephani
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ dependency like this to your [MODULE.bazel
 file](https://bazel.build/external/overview#bzlmod):
 
 ```starlark
-bazel_dep(name = "phst_license_test", version = "0", dev_dependency = True)
+bazel_dep(name = "license_test", version = "0", dev_dependency = True)
 git_override(
-    module_name = "phst_license_test",
+    module_name = "license_test",
     tag = "0.0.1",
     remote = "https://github.com/phst/license_test.git",
 )
