@@ -27,6 +27,12 @@ jobs:
           - ubuntu-latest
           - macos-latest
           - windows-latest
+        bazel:
+          - 7.1.0
+          - 7.x
+          - 8.x
+          - 9.x
+          - latest
     runs-on: ${{matrix.os}}
     steps:
       - name: Check out repository
@@ -38,23 +44,29 @@ jobs:
             common --announce_rc
             common --show_progress_rate_limit=10
             common --remote_download_minimal
-            common --lockfile_mode=error
+            common --lockfile_mode=${{matrix.bazel == 'latest' && 'error' || 'off'}}
             build --verbose_failures
             build --experimental_convenience_symlinks=ignore
             build --show_result=0
             build --nostamp
             build --experimental_repository_cache_hardlinks
             test --test_output=errors
-            run --noomit_run_args
-          disk-cache: true
+            ${{matrix.bazel == 'latest' && 'run --noomit_run_args' || ''}}
+          disk-cache: ${{matrix.bazel}}
           repository-cache: true
       - name: Run tests (Unix)
         if: matrix.os != 'windows-latest'
         shell: bash
+        env:
+          USE_BAZEL_VERSION: ${{matrix.bazel}}
         run: |
-          make check BAZEL=bazelisk
+          make check BAZEL=bazelisk EXCLUDE_TESTS=${{
+            startsWith(matrix.bazel, '7.') && '//docs:def_test' || ''
+          }}
       - name: Run tests (Windows)
         if: matrix.os == 'windows-latest'
         shell: cmd
+        env:
+          USE_BAZEL_VERSION: ${{matrix.bazel}}
         run: |
           bazelisk test //...
