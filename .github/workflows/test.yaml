@@ -61,7 +61,7 @@ jobs:
           USE_BAZEL_VERSION: ${{matrix.bazel}}
         run: |
           make check BAZEL=bazelisk EXCLUDE_TESTS=${{
-            startsWith(matrix.bazel, '7.') && '//docs:def_test' || ''
+            case(startsWith(matrix.bazel, '7.'), '//docs:def_test', '')
           }}
       - name: Run tests (Windows)
         if: matrix.os == 'windows-latest'
