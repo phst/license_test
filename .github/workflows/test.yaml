@@ -28,11 +28,11 @@ jobs:
           - macos-latest
           - windows-latest
         bazel:
-          - 7.1.0
-          - 7.x
-          - 8.x
-          - 9.x
-          - latest
+          - '7.1.0'
+          - '7.x'
+          - '8.x'
+          - '9.x'
+          - 'latest'
     runs-on: ${{matrix.os}}
     steps:
       - name: Check out repository
