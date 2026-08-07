@@ -51,7 +51,7 @@ jobs:
             build --nostamp
             build --experimental_repository_cache_hardlinks
             test --test_output=errors
-            ${{case(matrix.bazel == '', 'run --noomit_run_args', '')}}
+            ${{case(matrix.bazel == '', '', '# ')}}run --noomit_run_args
           disk-cache: ${{matrix.bazel || 'default'}}
           repository-cache: true
       - name: Run tests (Unix)
