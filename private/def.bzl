@@ -75,7 +75,6 @@ license_test = go_rule(
             default = Label("@rules_go//:go_context_data"),
         ),
     },
-    toolchains = [Label("@rules_go//go:toolchain")],
     implementation = _license_test_impl,
 )
 
