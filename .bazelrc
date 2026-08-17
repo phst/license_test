@@ -12,11 +12,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-common --enable_platform_specific_config
-
 common --enable_bzlmod --noenable_workspace
-
-# The next line shouldn’t be needed.  This is probably caused by
-# https://github.com/bazel-contrib/rules_go/pull/4593.
-# TODO: File bug against rules_go.
-build:windows --@rules_go//go/config:pure
