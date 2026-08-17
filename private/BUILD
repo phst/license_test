@@ -42,8 +42,5 @@ bzl_library(
     name = "def",
     srcs = ["def.bzl"],
     visibility = ["//:__pkg__"],
-    deps = [
-        "@rules_cc//cc:find_cc_toolchain_bzl",
-        "@rules_go//go:def",
-    ],
+    deps = ["@rules_go//go:def"],
 )
