@@ -16,10 +16,9 @@ module github.com/phst/license_test
 
 go 1.25.0
 
-require (
-	github.com/bazelbuild/rules_go v0.63.0
-	github.com/google/addlicense v1.2.0
-)
+require github.com/bazelbuild/rules_go v0.63.0
+
+require github.com/google/addlicense v1.2.0 // indirect
 
 require (
 	github.com/BurntSushi/toml v1.4.1-0.20240526193622-a339e1f7089c // indirect
@@ -28,7 +27,7 @@ require (
 	golang.org/x/mod v0.31.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/tools v0.40.1-0.20260108161641-ca281cf95054 // indirect
-	honnef.co/go/tools v0.7.0
+	honnef.co/go/tools v0.7.0 // indirect
 )
 
 tool (
