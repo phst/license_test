@@ -14,7 +14,7 @@
 
 module github.com/phst/license_test
 
-go 1.26.0
+go 1.26.7
 
 require github.com/bazelbuild/rules_go v0.63.0
 
