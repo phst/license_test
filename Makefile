@@ -14,6 +14,7 @@
 
 .POSIX:
 .PHONY: all check clean
+.PHONY: MODULE.bazel.lock example/MODULE.bazel.lock
 .SUFFIXES:
 
 SHELL = /bin/sh
@@ -23,7 +24,7 @@ BAZELFLAGS =
 GO = $(BAZEL) run $(BAZELFLAGS) -- @rules_go//go
 STATICCHECK = $(GO) tool staticcheck
 
-all:
+all: MODULE.bazel.lock example/MODULE.bazel.lock
 	$(BAZEL) build $(BAZELFLAGS) -- //...
 	cd example && $(BAZEL) build $(BAZELFLAGS) -- //...
 
@@ -36,3 +37,9 @@ check: all
 clean:
 	$(BAZEL) clean
 	cd example && $(BAZEL) clean
+
+MODULE.bazel.lock:
+	$(BAZEL) mod graph > /dev/null
+
+example/MODULE.bazel.lock:
+	cd example && $(BAZEL) mod graph > /dev/null
