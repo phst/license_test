@@ -28,7 +28,7 @@ jobs:
           - macos-latest
           - windows-latest
         bazel:
-          - '7.1.0'
+          - '7.7.0'
           - '7.x'
           - '8.x'
           - '9.x'
